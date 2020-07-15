@@ -1,0 +1,16 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ops
+  namespace: mongodb
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ops
+          servicePort: 8080
